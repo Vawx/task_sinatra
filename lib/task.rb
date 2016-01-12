@@ -1,12 +1,17 @@
 class Task
   @@all_tasks = []
 
-  define_method(:initialize) do |description|
-      @description = description
+  define_method(:initialize) do |description, timeframe|
+    @description = description
+    @timeframe = timeframe
   end
 
   define_method(:description) do
     @description
+  end
+
+  define_method(:timeframe) do
+    @timeframe
   end
 
   define_method(:save) do

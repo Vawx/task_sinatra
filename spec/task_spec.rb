@@ -1,5 +1,6 @@
 require('rspec')
 require('task')
+require('pry')
 
 describe(Task) do
   before() do
@@ -13,20 +14,20 @@ describe(Task) do
   end
   describe(".clear") do
     it("empties out all of the saved tasks") do
-      Task.new("Wash the lion").save
+      Task.new("Wash the lion", 15).save
       Task.clear
       expect(Task.all).to(eq([]))
     end
   end
   describe("#description") do
     it("lets give it a description") do
-      test_task = Task.new("scrub the zebra")
+      test_task = Task.new("scrub the zebra", 20)
       expect(test_task.description).to(eq("scrub the zebra"))
     end
   end
   describe("#save") do
     it("adds a task to the array of saved tasks") do
-      test_task = Task.new("wash the lion")
+      test_task = Task.new("wash the lion", 15)
       test_task.save()
       expect(Task.all).to(eq([test_task]))
     end
