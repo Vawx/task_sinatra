@@ -1,7 +1,7 @@
 require('sinatra')
-require('sinatra/reload')
+require('sinatra/reloader')
 also_reload("lib/**/*.rb")
-require(".lib/task")
+require("./lib/task")
 
 get('/') do
   @tasks = Task.all
@@ -10,7 +10,7 @@ end
 
 post('/tasks') do
   description = params.fetch("description")
-  task = Task.new(description)
+  task = Task.new(description, 10)
   task.save
   erb(:success)
 end
