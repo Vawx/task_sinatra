@@ -6,12 +6,19 @@
 
 <ul>
   <% @tasks.each do |task| %>
-    <li><%= task.description %></li>
+    <li><%= "You need to #{task.description} and it should take you\
+            #{task.timeframe} minutes" %></li>
   <% end %>
 </ul>
 
 <form action="/tasks" method="post">
-  <label for="description">Task Description</label>
-  <input type="text" id="description" name="description">
+  <div class="">
+    <label for="description">Task Description</label>
+    <input type="text" id="description" name="description">
+  </div>
+  <div class="">
+    <label for="time">Task Time</label>
+    <input type="text" id="time" name="time" value="0">
+  </div>
   <button type="submit" name="button">Add Task</button>
 </form>
